@@ -7,10 +7,10 @@ GOROOT_BOOTSTRAP=$HOME/go1.4
 GO_VERSION=1.4.3
 rm -fr $GOROOT_BOOTSTRAP
 mkdir -p $GOROOT_BOOTSTRAP
-curl -sSL https://github.com/DieterReuter/golang-armbuilds/releases/download/v${GO_VERSION}/go${GO_VERSION}.linux-armv7.tar.gz | tar xz -C $GOROOT_BOOTSTRAP --strip-components=1
+curl -sSL https://github.com/hypriot/golang-armbuilds/releases/download/v${GO_VERSION}/go${GO_VERSION}.linux-armv7.tar.gz | tar xz -C $GOROOT_BOOTSTRAP --strip-components=2
 
 # fetch Go 1.5.x source tarball
-GO_VERSION=1.5.1
+GO_VERSION=1.5
 GOARM=7
 rm -fr /usr/local/go
 curl -sSL https://storage.googleapis.com/golang/go${GO_VERSION}.src.tar.gz | tar xz -C /usr/local
