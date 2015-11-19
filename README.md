@@ -77,6 +77,12 @@ go1.5.1.linux-armv7.tar.gz
 ```
 
 
+## TODO
+- include the standard GOLANG tests for all builds
+- run builds for ARMv5, ARMv6 and ARMv7
+- automate builds via CI/CD (travis or circle-ci)
+
+
 ## Additional sources for building GOLANG on ARM
 - GoArm Wiki, https://github.com/golang/go/wiki/GoArm
 - Build from source, http://dave.cheney.net/2015/09/04/building-go-1-5-on-the-raspberry-pi by Dave Cheney
