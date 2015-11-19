@@ -10,7 +10,7 @@ curl -sSL https://storage.googleapis.com/golang/go${GO_VERSION}.src.tar.gz | tar
 pushd /usr/local/go/src
 time ./all.bash 2>&1
 cd ../..
-tar cfz go${GO_VERSION}.linux-armv${GOARM}.tar.gz ./go
+tar cfz go${GO_VERSION}.linux-armv${GOARM}.tar.gz go
 popd
 mv /usr/local/go${GO_VERSION}.linux-armv${GOARM}.tar.gz .
 
