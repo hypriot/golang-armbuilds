@@ -89,9 +89,9 @@ This failure seems to be already documented in https://github.com/golang/go/issu
 
 
 ## TODO
-- include the standard GOLANG tests for all builds
-- run builds for ARMv5, ARMv6 and ARMv7
-- automate builds via CI/CD (travis or circle-ci)
+- [x] include the standard GOLANG tests for all builds
+- [ ] run builds for ARMv5, ARMv6 and ARMv7
+- [ ] automate builds via CI/CD (travis or circle-ci)
 
 
 ## Additional sources for building GOLANG on ARM
