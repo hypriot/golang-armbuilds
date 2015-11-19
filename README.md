@@ -73,7 +73,7 @@ cd golang-armbuilds
 
 ### 4. Use it directly or upload the created tarball to GitHub releases
 ```
-go1.5.linux-armv7.tar.gz
+go1.5.1.linux-armv7.tar.gz
 ```
 
 
