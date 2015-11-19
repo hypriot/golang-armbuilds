@@ -77,6 +77,17 @@ go1.5.1.linux-armv7.tar.gz
 ```
 
 
+## Known issues
+On Scaleway one of the GOLANG tests are already failing:
+```
+--- FAIL: TestFilePacketConn (0.01s)
+	file_test.go:121: WriteTo failed: write ip: bad address
+FAIL
+FAIL	net	3.108s
+```
+This failure seems to be already documented in https://github.com/golang/go/issues/10730.
+
+
 ## TODO
 - include the standard GOLANG tests for all builds
 - run builds for ARMv5, ARMv6 and ARMv7
