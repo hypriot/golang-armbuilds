@@ -62,7 +62,7 @@ to bootstrap Go 1.5.x with it.
 
 ### 2. Clone this repo
 ```
-git clone https://github.com/DieterReuter/golang-armbuilds.git
+git clone https://github.com/hypriot/golang-armbuilds.git
 cd golang-armbuilds
 ```
 
