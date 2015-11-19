@@ -77,5 +77,13 @@ go1.5.1.linux-armv7.tar.gz
 ```
 
 
+## Additional sources for building GOLANG on ARM
+- GoArm Wiki, https://github.com/golang/go/wiki/GoArm
+- Build from source, http://dave.cheney.net/2015/09/04/building-go-1-5-on-the-raspberry-pi by Dave Cheney
+- Cross compile, http://dave.cheney.net/2015/08/22/cross-compilation-with-go-1-5 by Dave Cheney
+- Unofficial ARM tarballs for Go, http://dave.cheney.net/unofficial-arm-tarballs by Dave Cheney
+- Issue golang/go/#13066: build: provide ARM release binaries?, https://github.com/golang/go/issues/13066
+
+
 # Acknowledgements
 Many thanks to the GOLANG team at Google and all maintainers and contributers.
