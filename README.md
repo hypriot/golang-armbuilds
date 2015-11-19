@@ -35,7 +35,7 @@ cd golang-armbuilds
 
 ### 3. Run the compile script
 ```
-./make-tarball-1.4.x.sh
+./make-tarball-1.4.x.sh | tee make-tarball-1.4.3-armv7.log
 ```
 
 ### 4. Use it directly or upload the created tarball to GitHub releases
@@ -68,7 +68,7 @@ cd golang-armbuilds
 
 ### 3. Run the compile script
 ```
-./make-tarball-1.5.x.sh
+./make-tarball-1.5.x.sh | tee make-tarball-1.5.1-armv7.log
 ```
 
 ### 4. Use it directly or upload the created tarball to GitHub releases
