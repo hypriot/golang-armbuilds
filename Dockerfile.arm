@@ -5,9 +5,10 @@ MAINTAINER Dieter Reuter <dieter@hypriot.com>
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
-    gcc \
+    build-essential \
+    ca-certificates \
     curl \
-    git-core \
+    gcc \
     --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
 
