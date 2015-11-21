@@ -77,6 +77,12 @@ go1.5.1.linux-armv7.tar.gz
 ```
 
 
+## Building with a Docker container
+```
+docker build -t golang-builder -f Dockerfile.arm .
+```
+
+
 ## Known issues
 On Scaleway one of the GOLANG tests are already failing:
 ```
