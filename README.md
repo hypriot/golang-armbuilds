@@ -79,7 +79,7 @@ go1.5.1.linux-armv7.tar.gz
 
 ## Building with a Docker container
 ```
-docker build -t golang-builder -f Dockerfile.arm .
+docker build --build-arg GOARM=7 -t golang-builder -f Dockerfile.arm .
 ```
 
 

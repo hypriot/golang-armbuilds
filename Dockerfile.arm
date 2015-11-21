@@ -16,5 +16,6 @@ RUN apt-get update && apt-get install -y \
 ADD make-tarball-1.4.x.sh /
 
 # Compile Go 1.4.x and package as a tarball
-RUN GOARM=6 /make-tarball-1.4.x.sh
+ARG GOARM
+RUN /make-tarball-1.4.x.sh
 
