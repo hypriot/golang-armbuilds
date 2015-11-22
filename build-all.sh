@@ -11,7 +11,7 @@ do
   do
     export GOARM=${goarm}
     export GO_VERSION=${go14}
-    echo "./make-tarball-go1.4.sh | tee make-tarball-go${GO_VERSION}-armv${GOARM}.log"
+    time ./make-tarball-go1.4.sh | tee "make-tarball-go${GO_VERSION}-armv${GOARM}.log"
   done
 done
 
@@ -26,7 +26,7 @@ do
   do
     export GOARM=${goarm}
     export GO_VERSION=${go15}
-    echo "./make-tarball-go1.5.sh | tee make-tarball-go${GO_VERSION}-armv${GOARM}.log"
+    time ./make-tarball-go1.5.sh | tee "make-tarball-go${GO_VERSION}-armv${GOARM}.log"
   done
 done
 
