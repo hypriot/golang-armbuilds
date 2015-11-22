@@ -113,6 +113,9 @@ This failure seems to be already documented in https://github.com/golang/go/issu
 - [x] include the standard GOLANG tests for all builds
 - [x] run builds for ARMv5, ARMv6 and ARMv7
 - [ ] automate builds via CI/CD (travis or circle-ci)
+- [ ] cleanup README.md
+- [ ] detailed documentation for building GOLANG from scratch
+- [ ] detailed documentation for setting up a CI build pipeline
 
 
 ## Additional sources for building GOLANG on ARM
