@@ -12,8 +12,8 @@ For the sake of simplicity this build steps are meant to be used on a freshly in
 distro on any ARM machine.
 
 Please feel free to use this build recipe and report any issues AND when you could
-successfully build Go on a new machine send us this information so we can include this machine
-to the list of supported devices!
+successfully build Go on a new machine. And don't forget to send us this information so we can
+include this machine to the list of supported devices!
 
 ### 1. Prepare the build machine
 
@@ -34,7 +34,7 @@ cd golang-armbuilds
 ```
 
 ### 3. Run the compile script
-Here you can easily parameterize your build with `GOARM` (5, 6, 7. Defaul=7) and `GO_VERSION` (1.4, 1.4.1, 1.4.2, 1.4.3. Default=1.4.3) variables.
+Here you can easily parameterize your build with `GOARM` (5, 6, 7. Default=7) and `GO_VERSION` (1.4, 1.4.1, 1.4.2, 1.4.3. Default=1.4.3) variables.
 ```
 ./make-tarball-go1.4.sh | tee make-tarball-go1.4.3-armv7.log
 
@@ -74,7 +74,8 @@ cd golang-armbuilds
 ### 3. Run the compile script
 Here you can easily parameterize your build with `GOARM` (5, 6, 7. Default=7)
 and `GO_VERSION` (1.5, 1.5.1. Default=1.5.1) variables.
-For bootstrapping Go1.5 we need to install Go1.4, which is also able to parameterize with
+
+For bootstrapping Go1.5 we need to install Go1.4 first, which is also able to parameterize with
 `GO_BOOTSTRAP_GOARM` (5, 6, 7. Default=7)
 and `GO_BOOTSTRAP_VERSION` (1.4, 1.4.1, 1.4.2, 1.4.3. Default=1.4.3).
 ```

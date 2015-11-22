@@ -29,4 +29,3 @@ do
     time ./make-tarball-go1.5.sh | tee "make-tarball-go${GO_VERSION}-armv${GOARM}.log"
   done
 done
-
