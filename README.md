@@ -28,6 +28,7 @@ include this machine to the list of supported devices!
    ```
 
    For a Raspberry Pi A, A+, B, B+ (HypriotOS 0.6.1 "hector"): ARMv6
+
    For a Raspberry Pi 2B (HypriotOS 0.6.1 "hector"): ARMv7
    ```
    apt-get update
@@ -74,6 +75,7 @@ Go 1.4 tarball and use it to bootstrap Go 1.5 with it.
    ```
 
    For a Raspberry Pi A, A+, B, B+ (HypriotOS 0.6.1 "hector"): ARMv6
+
    For a Raspberry Pi 2B (HypriotOS 0.6.1 "hector"): ARMv7
    ```
    apt-get update
