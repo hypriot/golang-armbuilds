@@ -1,6 +1,12 @@
 #!/bin/bash
 set -ex
 
+# log some infos about Linux kernel and OS system release
+echo "uname -a"
+uname -a
+echo "cat /etc/*release"
+cat /etc/*release
+
 # fetch Go 1.4.x source tarball
 GOARM=${GOARM:-7}
 GO_VERSION=${GO_VERSION:-1.4.3}
