@@ -19,12 +19,19 @@ include this machine to the list of supported devices!
 
    Just install all necessary packages, for details see the official guide
    [Installing Go from source](https://golang.org/doc/install/source).
-   At least you'll need `gcc` to compile Go 1.4 from source.
+   At least you'll need `gcc` to compile Go 1.4 from source and additionally `curl` and `git`.
 
-   For a [Scaleway](https://www.scaleway.com) C1 server (Ubuntu 15.04):
+   For a [Scaleway](https://www.scaleway.com) C1 server (Ubuntu 15.04): ARMv7
    ```
    apt-get update
-   apt-get install -y build-essential curl git gcc
+   apt-get install -y build-essential
+   ```
+
+   For a Raspberry Pi A, A+, B, B+ (HypriotOS 0.6.1 "hector"): ARMv6
+   For a Raspberry Pi 2B (HypriotOS 0.6.1 "hector"): ARMv7
+   ```
+   apt-get update
+   apt-get install -y build-essential
    ```
 
 ### 2. Clone this repo
@@ -34,7 +41,8 @@ cd golang-armbuilds
 ```
 
 ### 3. Run the compile script
-Here you can easily parameterize your build with `GOARM` (5, 6, 7. Default=7) and `GO_VERSION` (1.4, 1.4.1, 1.4.2, 1.4.3. Default=1.4.3) variables.
+Here you can easily parameterize your build with `GOARM` (5, 6, 7. Default=7) and
+`GO_VERSION` (1.4, 1.4.1, 1.4.2, 1.4.3. Default=1.4.3) variables.
 ```
 ./make-tarball-go1.4.sh | tee make-tarball-go1.4.3-armv7.log
 
@@ -51,18 +59,25 @@ go1.4.3.linux-armv7.tar.gz
 
 ## How to create a pre-compiled GOLANG 1.5 tarball
 In order to build Go 1.5 from source, we need to have at least a Go 1.4 version installed on
-our dev machine. For this reason we just install our pre-compiled Go 1.4 tarball and use it
-to bootstrap Go 1.5 with it.
+our dev machine and additionally `curl` and `git`. For this reason we just install our pre-compiled
+Go 1.4 tarball and use it to bootstrap Go 1.5 with it.
 
 ### 1. Prepare the build machine
 
    Just install all necessary packages, for details see the official guide
    [Installing Go from source](https://golang.org/doc/install/source).
 
-   For a [Scaleway](https://www.scaleway.com) C1 server (Ubuntu 15.04):
+   For a [Scaleway](https://www.scaleway.com) C1 server (Ubuntu 15.04): ARMv7
    ```
    apt-get update
-   apt-get install -y build-essential curl git gcc
+   apt-get install -y build-essential
+   ```
+
+   For a Raspberry Pi A, A+, B, B+ (HypriotOS 0.6.1 "hector"): ARMv6
+   For a Raspberry Pi 2B (HypriotOS 0.6.1 "hector"): ARMv7
+   ```
+   apt-get update
+   apt-get install -y build-essential
    ```
 
 ### 2. Clone this repo
