@@ -1,4 +1,3 @@
-
 # Pull base image
 FROM resin/rpi-raspbian:jessie
 MAINTAINER Dieter Reuter <dieter@hypriot.com>
@@ -17,4 +16,5 @@ ADD make-tarball-1.4.x.sh /
 
 # Compile Go 1.4.x and package as a tarball
 ARG GOARM
+ARG GO_VERSION
 RUN /make-tarball-1.4.x.sh

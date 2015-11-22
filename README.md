@@ -94,7 +94,7 @@ go1.5.1.linux-armv7.tar.gz
 
 ## Building within a Docker container
 ```
-docker build --build-arg GOARM=7 -t golang-builder -f Dockerfile.arm .
+docker build --build-arg GOARM=7 --build-arg GO_VERSION=1.4.3 -t golang-builder -f Dockerfile.arm .
 docker run --rm golang-builder tar cf - go1.4.3.linux-armv7.tar.gz | tar xvf -
 ```
 
