@@ -1,9 +1,8 @@
 #!/bin/bash
 set -ex
 
-GOARM=${GOARM:-7}
-
 # fetch Go 1.4.x source tarball
+GOARM=${GOARM:-7}
 GO_VERSION=${GO_VERSION:-1.4.3}
 rm -fr /usr/local/go
 curl -sSL "https://storage.googleapis.com/golang/go${GO_VERSION}.src.tar.gz" | tar xz -C /usr/local

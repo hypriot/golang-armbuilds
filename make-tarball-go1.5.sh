@@ -1,8 +1,6 @@
 #!/bin/bash
 set -ex
 
-GOARM=${GOARM:-7}
-
 # we need this env var for the Go 1.5.x bootstrap build process
 GOROOT_BOOTSTRAP=$HOME/go1.4 
 
@@ -14,6 +12,7 @@ mkdir -p "$GOROOT_BOOTSTRAP"
 curl -sSL "https://github.com/hypriot/golang-armbuilds/releases/download/v${GO_BOOTSTRAP_VERSION}/go${GO_BOOTSTRAP_VERSION}.linux-armv${GO_BOOTSTRAP_GOARM}.tar.gz" | tar xz -C "$GOROOT_BOOTSTRAP" --strip-components=1
 
 # fetch Go 1.5.x source tarball
+GOARM=${GOARM:-7}
 GO_VERSION=${GO_VERSION:-1.5.1}
 rm -fr /usr/local/go
 curl -sSL "https://storage.googleapis.com/golang/go${GO_VERSION}.src.tar.gz" | tar xz -C /usr/local
