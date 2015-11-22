@@ -2,7 +2,7 @@
 Pre-compiled GOLANG tarballs for ARM devices.
 
 
-## How to create a pre-compiled GOLANG 1.4.x tarball
+## How to create a pre-compiled GOLANG 1.4 tarball
 Unfortunately there are no pre-compiled GOLANG tarballs for ARM officially available yet and
 the preferred way to build such a tarball from source isn't well documented at all.
 
@@ -19,12 +19,12 @@ to the list of supported devices!
 
    Just install all necessary packages, for details see the official guide
    [Installing Go from source](https://golang.org/doc/install/source).
-   At least you'll need `gcc` to compile Go 1.4.x from source.
+   At least you'll need `gcc` to compile Go 1.4 from source.
 
    For a [Scaleway](https://www.scaleway.com) C1 server (Ubuntu 15.04):
    ```
    apt-get update
-   apt-get install -y curl git gcc
+   apt-get install -y build-essential curl git gcc
    ```
 
 ### 2. Clone this repo
@@ -34,8 +34,13 @@ cd golang-armbuilds
 ```
 
 ### 3. Run the compile script
+Here you can easily parameterize your build with `GOARM` (5, 6, 7. Defaul=7) and `GO_VERSION` (1.4, 1.4.1, 1.4.2, 1.4.3. Default=1.4.3) variables.
 ```
-./make-tarball-1.4.x.sh | tee make-tarball-1.4.3-armv7.log
+./make-tarball-go1.4.sh | tee make-tarball-go1.4.3-armv7.log
+
+export GO_VERSION=1.4.2 && ./make-tarball-go1.4.sh | tee make-tarball-go${GO_VERSION}-armv7.log
+
+export GOARM=5 GO_VERSION=1.4.1 && ./make-tarball-go1.4.sh | tee make-tarball-go${GO_VERSION}-armv${GOARM}.log
 ```
 
 ### 4. Use it directly or upload the created tarball to GitHub releases
@@ -44,10 +49,10 @@ go1.4.3.linux-armv7.tar.gz
 ```
 
 
-## How to create a pre-compiled GOLANG 1.5.x tarball
-In order to build Go 1.5.x from source, we need to have at least a Go 1.4 version installed on
-our dev machine. For this reason we just install our pre-compiled Go 1.4.x tarball and use it
-to bootstrap Go 1.5.x with it.
+## How to create a pre-compiled GOLANG 1.5 tarball
+In order to build Go 1.5 from source, we need to have at least a Go 1.4 version installed on
+our dev machine. For this reason we just install our pre-compiled Go 1.4 tarball and use it
+to bootstrap Go 1.5 with it.
 
 ### 1. Prepare the build machine
 
@@ -57,7 +62,7 @@ to bootstrap Go 1.5.x with it.
    For a [Scaleway](https://www.scaleway.com) C1 server (Ubuntu 15.04):
    ```
    apt-get update
-   apt-get install -y curl git
+   apt-get install -y build-essential curl git gcc
    ```
 
 ### 2. Clone this repo
@@ -67,17 +72,26 @@ cd golang-armbuilds
 ```
 
 ### 3. Run the compile script
+Here you can easily parameterize your build with `GOARM` (5, 6, 7. Default=7)
+and `GO_VERSION` (1.5, 1.5.1. Default=1.5.1) variables.
+For bootstrapping Go1.5 we need to install Go1.4, which is also able to parameterize with
+`GO_BOOTSTRAP_GOARM` (5, 6, 7. Default=7)
+and `GO_BOOTSTRAP_VERSION` (1.4, 1.4.1, 1.4.2, 1.4.3. Default=1.4.3).
 ```
-./make-tarball-1.5.x.sh | tee make-tarball-1.5.1-armv7.log
+export GOARM=5 && ./make-tarball-go1.5.sh | tee make-tarball-go1.5.1-armv${GOARM}.log
+export GOARM=6 && ./make-tarball-go1.5.sh | tee make-tarball-go1.5.1-armv${GOARM}.log
+export GOARM=7 && ./make-tarball-go1.5.sh | tee make-tarball-go1.5.1-armv${GOARM}.log
 ```
 
 ### 4. Use it directly or upload the created tarball to GitHub releases
 ```
+go1.5.1.linux-armv5.tar.gz
+go1.5.1.linux-armv6.tar.gz
 go1.5.1.linux-armv7.tar.gz
 ```
 
 
-## Building with a Docker container
+## Building within a Docker container
 ```
 docker build --build-arg GOARM=7 -t golang-builder -f Dockerfile.arm .
 docker run --rm golang-builder tar cf - go1.4.3.linux-armv7.tar.gz | tar xvf -
@@ -99,6 +113,9 @@ This failure seems to be already documented in https://github.com/golang/go/issu
 - [x] include the standard GOLANG tests for all builds
 - [x] run builds for ARMv5, ARMv6 and ARMv7
 - [ ] automate builds via CI/CD (travis or circle-ci)
+- [ ] cleanup README.md
+- [ ] detailed documentation for building GOLANG from scratch
+- [ ] detailed documentation for setting up a CI build pipeline
 
 
 ## Additional sources for building GOLANG on ARM

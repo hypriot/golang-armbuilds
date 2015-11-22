@@ -7,10 +7,11 @@ GOARM=${GOARM:-7}
 GOROOT_BOOTSTRAP=$HOME/go1.4 
 
 # install a pre-compiled Go 1.4.x tarball to bootstrap
+GO_BOOTSTRAP_GOARM=${GO_BOOTSTRAP_GOARM:-7}
 GO_BOOTSTRAP_VERSION=${GO_BOOTSTRAP_VERSION:-1.4.3}
 rm -fr $GOROOT_BOOTSTRAP
 mkdir -p $GOROOT_BOOTSTRAP
-curl -sSL https://github.com/hypriot/golang-armbuilds/releases/download/v${GO_BOOTSTRAP_VERSION}/go${GO_BOOTSTRAP_VERSION}.linux-armv${GOARM}.tar.gz | tar xz -C $GOROOT_BOOTSTRAP --strip-components=1
+curl -sSL https://github.com/hypriot/golang-armbuilds/releases/download/v${GO_BOOTSTRAP_VERSION}/go${GO_BOOTSTRAP_VERSION}.linux-armv${GO_BOOTSTRAP_GOARM}.tar.gz | tar xz -C $GOROOT_BOOTSTRAP --strip-components=1
 
 # fetch Go 1.5.x source tarball
 GO_VERSION=${GO_VERSION:-1.5.1}
