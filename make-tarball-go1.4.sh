@@ -1,10 +1,8 @@
 #!/bin/bash
 set -ex
 
-# log some infos about Linux kernel and OS system release
-echo "uname -a"
+# log infos about Linux kernel and OS system release
 uname -a
-echo "cat /etc/*release"
 cat /etc/*release
 
 # fetch Go 1.4.x source tarball
