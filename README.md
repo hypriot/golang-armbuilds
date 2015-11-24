@@ -45,11 +45,11 @@ cd golang-armbuilds
 Here you can easily parameterize your build with `GOARM` (5, 6, 7. Default=7) and
 `GO_VERSION` (1.4, 1.4.1, 1.4.2, 1.4.3. Default=1.4.3) variables.
 ```
-./make-tarball-go1.4.sh | tee make-tarball-go1.4.3-armv7.log
+./make-tarball-go1.4.sh |& tee make-tarball-go1.4.3-armv7.log
 
-export GO_VERSION=1.4.2 && ./make-tarball-go1.4.sh | tee make-tarball-go${GO_VERSION}-armv7.log
+export GO_VERSION=1.4.2 && ./make-tarball-go1.4.sh |& tee make-tarball-go${GO_VERSION}-armv7.log
 
-export GOARM=5 GO_VERSION=1.4.1 && ./make-tarball-go1.4.sh | tee make-tarball-go${GO_VERSION}-armv${GOARM}.log
+export GOARM=5 GO_VERSION=1.4.1 && ./make-tarball-go1.4.sh |& tee make-tarball-go${GO_VERSION}-armv${GOARM}.log
 ```
 
 ### 4. Use it directly or upload the created tarball to GitHub releases
@@ -96,9 +96,9 @@ For bootstrapping Go1.5 we need to install Go1.4 first, which is also able to pa
 `GO_BOOTSTRAP_GOARM` (5, 6, 7. Default=7)
 and `GO_BOOTSTRAP_VERSION` (1.4, 1.4.1, 1.4.2, 1.4.3. Default=1.4.3).
 ```
-export GOARM=5 && ./make-tarball-go1.5.sh | tee make-tarball-go1.5.1-armv${GOARM}.log
-export GOARM=6 && ./make-tarball-go1.5.sh | tee make-tarball-go1.5.1-armv${GOARM}.log
-export GOARM=7 && ./make-tarball-go1.5.sh | tee make-tarball-go1.5.1-armv${GOARM}.log
+export GOARM=5 && ./make-tarball-go1.5.sh |& tee make-tarball-go1.5.1-armv${GOARM}.log
+export GOARM=6 && ./make-tarball-go1.5.sh |& tee make-tarball-go1.5.1-armv${GOARM}.log
+export GOARM=7 && ./make-tarball-go1.5.sh |& tee make-tarball-go1.5.1-armv${GOARM}.log
 ```
 
 ### 4. Use it directly or upload the created tarball to GitHub releases
