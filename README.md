@@ -1,6 +1,37 @@
 # golang-armbuilds
 Pre-compiled GOLANG tarballs for ARM devices.
 
+In this repo we'd like to document all steps how to compile the GOLANG compiler from source and package
+the results as pre-compiled tarballs. So everyone can easily reproduce these steps on a bare ARM Linux machine
+without the need of having Go already installed. You can use this informations to compile Go on all different
+CPU architectures as well.
+
+To make a developers live even easier, we're providing in the [release section](https://github.com/hypriot/golang-armbuilds/releases)
+all pre-compiled Go tarballs for all supported ARM versions:
+- ARMv5
+- ARMv6 (Raspberry Pi A, A+, B, B+, Zero)
+- ARMv7 (Raspberry Pi 2, Scaleway C1)
+- ARM64 (which is also known as AARCH64)
+
+
+## How to install and use a pre-compiled GOLANG tarball
+Just download the correct tarball for your ARM CPU from the [release section](https://github.com/hypriot/golang-armbuilds/releases)
+and install it to `/usr/local/go`, set the `PATH` env variable and you can instantly start to compile your Go programs.
+Don't forget to set the `PATH` env variable within your `~/.bashrc` or `~/.profile` as well for your Linux user account.
+```
+tar -xvzf go1.5.1.linux-armv7.tar.gz -C /usr/local
+export PATH=/usr/local/go/bin:$PATH
+```
+
+Now let's test if it works.
+```
+which go
+/usr/local/go/bin/go
+
+go version
+go version go1.5.1 linux/arm
+```
+
 
 ## How to create a pre-compiled GOLANG 1.4 tarball
 Unfortunately there are no pre-compiled GOLANG tarballs for ARM officially available yet and
