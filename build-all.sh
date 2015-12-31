@@ -3,6 +3,7 @@
 # --- build all version of Go1.4
 # interate over all available Go1.4 versions
 go14_list=( 1.4 1.4.1 1.4.2 1.4.3 )
+go14_list=( 1.4.3 )
 for go14 in "${go14_list[@]}"
 do
   # interate over all available GOARM versions
@@ -18,6 +19,7 @@ done
 # --- build all version of Go1.5
 # interate over all available Go1.5 versions
 go15_list=( 1.5 1.5.1 1.5.2 )
+go15_list=( 1.5.1 1.5.2 )
 for go15 in "${go15_list[@]}"
 do
   # interate over all available GOARM versions
