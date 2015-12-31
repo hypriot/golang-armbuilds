@@ -26,7 +26,7 @@ pushd /usr/local/go/src
 #time ./all.bash 2>&1
 time ./make.bash 2>&1
 cd ../..
-tar cfz "go${GO_VERSION}.linux-armv${GOARM}.tar.gz" go
+tar --numeric-owner -czf "go${GO_VERSION}.linux-armv${GOARM}.tar.gz" go
 popd
 mv "/usr/local/go${GO_VERSION}.linux-armv${GOARM}.tar.gz" .
 
