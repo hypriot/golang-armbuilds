@@ -197,7 +197,17 @@ ls -al *arm64*
 ```
 
 ### 2. Use the bootstrap tarball on an ARM64 machine to create a pre-compiled GOLANG 1.5 tarball
-WIP
+To decompress the bootstrap tarball `go-linux-arm64-bootstrap.tbz` we need to install
+`bzip2` first.
+```
+sudo apt-get install -y bzip2
+```
+
+Now let's compile Go 1.5.1 natively on ARM64 using the bootstrap tarball we have
+already created on ARMv7.
+```
+time SKIP_TESTS=1 ./make-tarball-go1.5-arm64.sh
+```
 
 
 ## Known issues
@@ -214,7 +224,7 @@ This failure seems to be already documented in https://github.com/golang/go/issu
 ## TODO
 - [x] include the standard GOLANG tests for all builds
 - [x] run builds for ARMv5, ARMv6 and ARMv7
-- [ ] run builds for ARM64 (aka Aarch64)
+- [x] run builds for ARM64 (aka ARMv8 or Aarch64)
 - [ ] automate builds via CI/CD (travis or circle-ci)
 - [ ] cleanup README.md
 - [x] detailed documentation for building GOLANG from scratch, see http://blog.hypriot.com/post/how-to-compile-go-on-arm/
