@@ -176,6 +176,30 @@ docker run --rm golang-builder tar cf - go1.4.3.linux-armv7.tar.gz | tar xvf -
 ```
 
 
+## How to bootstrap a GOLANG 1.5 tarball for ARM64 and PPC64
+As there is no Go 1.4 support for ARM64 or PPC64 available, the process to compile
+Go 1.5 on these platforms is a little bit different. But luckily Dave Cheney provided
+an easy to follow tutorial how to bootstrap a Go 1.5.1 tarball on OSX or Intel Linux.
+As we are working mostly on ARM, we just used the same steps on an ARMv7 machine.
+
+### 1. Create a bootstrap tarball for ARM64 on an ARMv7 machine
+Everything is available as a shell script, so it's damn easy to reproduce. But you
+can find the generated bootstrap tarball for ARM64 as well as the log file from
+this script in the release section.
+```
+time ./bootstrap-tarball-go1.5.1-arm64.sh | tee bootstrap-tarball-go1.5.1-arm64.log
+```
+```
+ls -al *arm64*
+-rw-rw-r-- 1 ubuntu ubuntu    11917 Jan  2 15:20 bootstrap-tarball-go1.5.1-arm64.log
+-rwxrwxr-x 1 ubuntu ubuntu     1353 Jan  2 15:08 bootstrap-tarball-go1.5.1-arm64.sh
+-rw-rw-r-- 1 ubuntu ubuntu 45354608 Jan  2 15:20 go-linux-arm64-bootstrap.tbz
+```
+
+### 2. Use the bootstrap tarball on an ARM64 machine to create a pre-compiled GOLANG 1.5 tarball
+WIP
+
+
 ## Known issues
 On Scaleway one of the GOLANG tests are already failing:
 ```
@@ -190,6 +214,7 @@ This failure seems to be already documented in https://github.com/golang/go/issu
 ## TODO
 - [x] include the standard GOLANG tests for all builds
 - [x] run builds for ARMv5, ARMv6 and ARMv7
+- [ ] run builds for ARM64 (aka Aarch64)
 - [ ] automate builds via CI/CD (travis or circle-ci)
 - [ ] cleanup README.md
 - [x] detailed documentation for building GOLANG from scratch, see http://blog.hypriot.com/post/how-to-compile-go-on-arm/
@@ -202,6 +227,7 @@ This failure seems to be already documented in https://github.com/golang/go/issu
 - Cross compile, http://dave.cheney.net/2015/08/22/cross-compilation-with-go-1-5 by Dave Cheney
 - Unofficial ARM tarballs for Go, http://dave.cheney.net/unofficial-arm-tarballs by Dave Cheney
 - Issue golang/go/#13066: build: provide ARM release binaries?, https://github.com/golang/go/issues/13066
+- Bootstrapping Go 1.5 on non Intel platforms, http://dave.cheney.net/2015/10/16/bootstrapping-go-1-5-on-non-intel-platforms by Dave Cheney
 
 
 # Acknowledgements
