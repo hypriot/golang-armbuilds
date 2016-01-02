@@ -17,7 +17,6 @@ all pre-compiled Go tarballs for all supported ARM versions:
 ## How to install and use a pre-compiled GOLANG tarball
 Just download the correct tarball for your ARM CPU from the [release section](https://github.com/hypriot/golang-armbuilds/releases)
 and install it to `/usr/local/go`, set the `PATH` env variable and you can instantly start to compile your Go programs.
-Don't forget to set the `PATH` env variable within your `~/.bashrc` or `~/.profile` as well for your Linux user account.
 ```
 tar -xvzf go1.5.1.linux-armv7.tar.gz -C /usr/local
 export PATH=/usr/local/go/bin:$PATH
@@ -32,6 +31,14 @@ go version
 go version go1.5.1 linux/arm
 ```
 
+Don't forget to set the `PATH` env variable within your `~/.bashrc` or `~/.profile` as well for your Linux user account.  
+You can use this code snipped:
+```
+# set PATH so it includes GO bin if it exists
+if [ -d "/usr/local/go/bin" ] ; then
+    PATH="/usr/local/go/bin:$PATH"
+fi
+```
 
 ## How to create a pre-compiled GOLANG 1.4 tarball
 Unfortunately there are no pre-compiled GOLANG tarballs for ARM officially available yet and
@@ -43,28 +50,33 @@ For the sake of simplicity this build steps are meant to be used on a freshly in
 distro on any ARM machine.
 
 Please feel free to use this build recipe and report any issues AND when you could
-successfully build Go on a new machine. And don't forget to send us this information so we can
-include this machine to the list of supported devices!
+successfully build Go on a new machine. And don't forget to send us this informations
+so we can include this machine to the list of supported devices!
 
 ### 1. Prepare the build machine
 
-   Just install all necessary packages, for details see the official guide
-   [Installing Go from source](https://golang.org/doc/install/source).
-   At least you'll need `gcc` to compile Go 1.4 from source and additionally `curl` and `git`.
+Just install all necessary packages, for details see the official guide
+[Installing Go from source](https://golang.org/doc/install/source).
+At least you'll need `gcc` to compile Go 1.4 from source and additionally `curl` and `git`.
 
-   For a [Scaleway](https://www.scaleway.com) C1 server (Ubuntu 15.04): ARMv7
-   ```
-   apt-get update
-   apt-get install -y build-essential
-   ```
+For a [Scaleway](https://www.scaleway.com) C1 server (Ubuntu 15.04): ARMv7
+```
+apt-get update
+apt-get install -y build-essential
+```
 
-   For a Raspberry Pi A, A+, B, B+ (HypriotOS 0.6.1 "hector"): ARMv6
+For a Raspberry Pi A, A+, B, B+ (HypriotOS 0.6.1 "hector"): ARMv6  
+For a Raspberry Pi 2B (HypriotOS 0.6.1 "hector"): ARMv7
+```
+apt-get update
+apt-get install -y build-essential
+```
 
-   For a Raspberry Pi 2B (HypriotOS 0.6.1 "hector"): ARMv7
-   ```
-   apt-get update
-   apt-get install -y build-essential
-   ```
+For a Nvidia Jetson TK1 (Ubuntu 14.04.1 LTS): ARMv7
+```
+apt-get update
+apt-get install -y build-essential
+```
 
 ### 2. Clone this repo
 ```
@@ -83,8 +95,20 @@ export GO_VERSION=1.4.2 && ./make-tarball-go1.4.sh |& tee make-tarball-go${GO_VE
 export GOARM=5 GO_VERSION=1.4.1 && ./make-tarball-go1.4.sh |& tee make-tarball-go${GO_VERSION}-armv${GOARM}.log
 ```
 
+While compiling GOLANG from source all the tests will be run by default, which
+will take a lot of time. If you'd just like to create the binary tarball without
+actually running the full test suite, you can easily skip the tests by setting
+the env variable `SKIP_TESTS` to anything.
+```
+export SKIP_TESTS=1
+```
+On some of the Linux ARM devices the tests are failing! So keep this option in
+mind and deactivate testing.
+
 ### 4. Use it directly or upload the created tarball to GitHub releases
 ```
+go1.4.3.linux-armv5.tar.gz
+go1.4.3.linux-armv6.tar.gz
 go1.4.3.linux-armv7.tar.gz
 ```
 
@@ -96,22 +120,27 @@ Go 1.4 tarball and use it to bootstrap Go 1.5 with it.
 
 ### 1. Prepare the build machine
 
-   Just install all necessary packages, for details see the official guide
-   [Installing Go from source](https://golang.org/doc/install/source).
+Just install all necessary packages, for details see the official guide
+[Installing Go from source](https://golang.org/doc/install/source).
 
-   For a [Scaleway](https://www.scaleway.com) C1 server (Ubuntu 15.04): ARMv7
-   ```
-   apt-get update
-   apt-get install -y build-essential
-   ```
+For a [Scaleway](https://www.scaleway.com) C1 server (Ubuntu 15.04): ARMv7
+```
+apt-get update
+apt-get install -y build-essential
+```
 
-   For a Raspberry Pi A, A+, B, B+ (HypriotOS 0.6.1 "hector"): ARMv6
+For a Raspberry Pi A, A+, B, B+ (HypriotOS 0.6.1 "hector"): ARMv6  
+For a Raspberry Pi 2B (HypriotOS 0.6.1 "hector"): ARMv7
+```
+apt-get update
+apt-get install -y build-essential
+```
 
-   For a Raspberry Pi 2B (HypriotOS 0.6.1 "hector"): ARMv7
-   ```
-   apt-get update
-   apt-get install -y build-essential
-   ```
+For a Nvidia Jetson TK1 (Ubuntu 14.04.1 LTS): ARMv7
+```
+apt-get update
+apt-get install -y build-essential
+```
 
 ### 2. Clone this repo
 ```
@@ -163,7 +192,7 @@ This failure seems to be already documented in https://github.com/golang/go/issu
 - [x] run builds for ARMv5, ARMv6 and ARMv7
 - [ ] automate builds via CI/CD (travis or circle-ci)
 - [ ] cleanup README.md
-- [ ] detailed documentation for building GOLANG from scratch
+- [x] detailed documentation for building GOLANG from scratch, see http://blog.hypriot.com/post/how-to-compile-go-on-arm/
 - [ ] detailed documentation for setting up a CI build pipeline
 
 
