@@ -21,5 +21,5 @@ do
   export GO_BOOTSTRAP_GOARMV=v6
   export GO_BOOTSTRAP_VERSION=1.4.3
   export GOARMV=v6
-  time SKIP_TESTS=y ./make-tarball-go1.5.2.sh | tee "make-tarball-go${GO_VERSION}-arm${GOARM}.log"
+  time SKIP_TESTS=y ./make-tarball-go1.5.2.sh | tee "make-tarball-go${GO_VERSION}-arm${GOARMV}.log"
 done
