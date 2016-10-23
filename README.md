@@ -10,7 +10,7 @@ To make a developers live even easier, we're providing in the [release section](
 all pre-compiled Go tarballs for all supported ARM versions:
 - ARMv5
 - ARMv6 (Raspberry Pi A, A+, B, B+, Zero)
-- ARMv7 (Raspberry Pi 2, Scaleway C1)
+- ARMv7 (Raspberry Pi 2, 3, Scaleway C1)
 - ARM64 (which is also known as AARCH64)
 
 
